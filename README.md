@@ -53,10 +53,10 @@ I can modify bookmarks I own
 ```
 
 #### Domain Model
-```
+
 ![bookmark_manager domain model](./public/images/bookmark_manager_1.png)
 
-```
+
 
 #### To set up the database
 
