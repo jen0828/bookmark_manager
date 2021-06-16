@@ -54,11 +54,15 @@ I can modify bookmarks I own
 
 #### Domain Model
 ```
+![bookmark_manager domain model](./public/images/bookmark_manager_1.png)
+
 ```
 
-#### To set up a database
+#### To set up the database
 
-1. Connect to psql
-2. Create the database using the psql command CREATE DATABASE bookmark_manager;
-3. Connect to the database using the pqsl command \c bookmark_manager;
-4. Run the query we have saved in the file 01_create_bookmarks_table.sql
+Connect to `psql` and create the `bookmark_manager` and `bookmark_manager_test` databases:
+
+```
+CREATE DATABASE bookmark_manager_test;
+```
+To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
