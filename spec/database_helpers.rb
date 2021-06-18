@@ -1,4 +1,3 @@
-# in spec/database_helpers.rb
 require 'pg'
 
 def persisted_data(id:)
