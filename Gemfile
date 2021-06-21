@@ -10,6 +10,7 @@ end
 group :development do
   gem 'sinatra'
   gem "sinatra-contrib"
+  gem "sinatra-flash"
   gem "selenium-webdriver"
   gem "webrick", "~> 1.7"
   gem "rexml"
