@@ -1,18 +1,18 @@
-
 source 'https://rubygems.org'
 
 group :test do
   gem 'capybara'
-  gem 'rspec'
   gem 'pg'
+  gem 'rspec'
+  gem 'rubocop'
 end
 
 group :development do
+  gem 'launchy'
+  gem 'rexml'
+  gem 'selenium-webdriver'
   gem 'sinatra'
-  gem "sinatra-contrib"
-  gem "sinatra-flash"
-  gem "selenium-webdriver"
-  gem "webrick", "~> 1.7"
-  gem "rexml"
-  gem "launchy"
+  gem 'sinatra-contrib'
+  gem 'sinatra-flash'
+  gem 'webrick', '~> 1.7'
 end

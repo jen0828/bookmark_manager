@@ -11,21 +11,22 @@ class Bookmark
   end
 
   def self.all
-    result = DatabaseConnection.query("SELECT * FROM bookmarks")
+    result = DatabaseConnection.query('SELECT * FROM bookmarks')
     result.map do |bookmark|
       Bookmark.new(
         url: bookmark['url'],
         title: bookmark['title'],
-        id: bookmark['id'],
+        id: bookmark['id']
       )
-     end
+    end
   end
 
   def self.create(url:, title:)
     return false unless is_url?(url)
+
     result = DatabaseConnection.query("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}') RETURNING id, title, url;")
     Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
-  end  
+  end
 
   def self.delete(id:)
     DatabaseConnection.query("DELETE FROM bookmarks WHERE id = #{id}")
@@ -41,11 +42,7 @@ class Bookmark
     Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
   end
 
-  private
-
   def self.is_url?(url)
-    url =~ /\A#{URI::regexp(['http', 'https'])}\z/
+    url =~ /\A#{URI::DEFAULT_PARSER.make_regexp(%w[http https])}\z/
   end
 end
-
-
